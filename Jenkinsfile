@@ -1,25 +1,17 @@
 pipeline {
     agent{
         docker {
-            image 'python:3.8' // Use an appropriate Docker image
-            // Optional: run as root
+            image 'python:3.8' 
         }
     }
 
     stages {
-        stage('Checkout') {
-            steps {
-                // Checkout code from the specified Git repository
-                git url: 'https://github.com/prempeddamallu/jenkins-pipe-calculator.git', branch: 'main'
-                echo 'Checkout'
-            }
-        }
 
         stage('Install Dependencies') {
             steps {
                 // Install any required dependencies (adjust as necessary)
                 // sh 'pip install -r requirements.txt'  // Ensure you have a requirements.txt if needed
-                sh 'pip install unittest'
+                // sh 'pip install unittest'
                 // sh 'python -m unittest test_calculator.py'
                 echo 'Intall Dependencies'
             }
