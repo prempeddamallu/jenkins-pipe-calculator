@@ -5,7 +5,7 @@ pipeline {
         stage('Checkout') {
             steps {
                 // Checkout code from the specified Git repository
-                // git url: 'https://github.com/prempeddamallu/jenkins-pipe-calculator.git', branch: 'main'
+                git url: 'https://github.com/prempeddamallu/jenkins-pipe-calculator.git', branch: 'main'
                 echo 'Checkout'
             }
         }
