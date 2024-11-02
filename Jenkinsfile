@@ -1,5 +1,10 @@
 pipeline {
-    agent any  // Use any available agent
+    agent{
+        docker {
+            image 'python:3.8' // Use an appropriate Docker image
+            args '-u root:root' // Optional: run as root
+        }
+    }
 
     stages {
         stage('Checkout') {
