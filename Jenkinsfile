@@ -1,37 +1,31 @@
 pipeline {
-    agent any
-
+    agent any  // Use any available agent
     stages {
-
-        stage('Install Dependencies') {
+        stage('Checkout') {
             steps {
-                // Install any required dependencies (adjust as necessary)
-                // sh 'pip install -r requirements.txt'  // Ensure you have a requirements.txt if needed
-                // sh 'pip install unittest'
-                // sh 'python -m unittest test_calculator.py'
-                echo 'Intall Dependencies'
+                // Checkout code from Git repository
+                // checkout scm
             }
         }
-
-        stage('Run Tests') {
+        stage('Install Dependencies') {
+            steps {
+                // Install required Python packages
+                sh 'pip install -r requirements.txt || true'
+            }
+        }
+        stage('Run Unit Tests') {
             steps {
                 // Run unit tests
-                // sh 'python -m unittest discover'  // Adjust if your tests are located differently
-                echo 'Run Tests'
+                sh 'python -m unittest discover -s . -p "test_*.py"'
             }
         }
     }
-
     post {
-        always {
-            // Actions that run after the pipeline, regardless of success/failure
-            echo 'Pipeline completed.'
-        }
         success {
-            echo 'All tests passed!'
+            echo 'Build succeeded!'
         }
         failure {
-            echo 'One or more tests failed.'
+            echo 'Build failed!'
         }
     }
 }
