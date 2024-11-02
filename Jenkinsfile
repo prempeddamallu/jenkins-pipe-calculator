@@ -1,12 +1,7 @@
 pipeline {
     agent any  // Use any available agent
     stages {
-        stage('Checkout') {
-            steps {
-                // Checkout code from Git repository
-                // checkout scm
-            }
-        }
+        
         stage('Install Dependencies') {
             steps {
                 // Install required Python packages
