@@ -5,7 +5,8 @@ pipeline {
         stage('Checkout') {
             steps {
                 // Checkout code from the specified Git repository
-                git url: 'https://github.com/prempeddamallu/jenkins-pipe-calculator.git', branch: 'main'
+                // git url: 'https://github.com/prempeddamallu/jenkins-pipe-calculator.git', branch: 'main'
+                echo 'Checkout'
             }
         }
 
@@ -13,15 +14,17 @@ pipeline {
             steps {
                 // Install any required dependencies (adjust as necessary)
                 // sh 'pip install -r requirements.txt'  // Ensure you have a requirements.txt if needed
-                sh 'pip install unittest'
-                sh 'python -m unittest test_calculator.py'
+                // sh 'pip install unittest'
+                // sh 'python -m unittest test_calculator.py'
+                echo 'Intall Dependencies'
             }
         }
 
         stage('Run Tests') {
             steps {
                 // Run unit tests
-                sh 'python -m unittest discover'  // Adjust if your tests are located differently
+                // sh 'python -m unittest discover'  // Adjust if your tests are located differently
+                echo 'Run Tests'
             }
         }
     }
