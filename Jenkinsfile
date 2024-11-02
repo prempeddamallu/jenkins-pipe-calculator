@@ -14,7 +14,7 @@ pipeline {
             steps {
                 // Install any required dependencies (adjust as necessary)
                 // sh 'pip install -r requirements.txt'  // Ensure you have a requirements.txt if needed
-                // sh 'pip install unittest'
+                sh 'pip install unittest'
                 // sh 'python -m unittest test_calculator.py'
                 echo 'Intall Dependencies'
             }
